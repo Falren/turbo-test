@@ -1,7 +1,9 @@
 class Quote < ApplicationRecord
-  validates :name, length: { minimum: 2 }
-
+  belongs_to :company
   
-  broadcasts_to ->(quote) {'quotes'}, inserts_by: :prepend
   scope :ordered, -> { order(id: :desc) }
+  
+  broadcasts_to ->(quote) { [quote.company, "quotes"] }, inserts_by: :prepend
+  
+  validates :name, length: { minimum: 2 }
 end
