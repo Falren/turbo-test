@@ -6,7 +6,7 @@
 @import "config/reset";
 
 // Components
-
+@import "components/flash";
 @import "components/btn";
 @import "components/error_message";
 @import "components/form";
@@ -14,7 +14,9 @@
 @import "components/quote";
 @import "components/turbo_progress_bar";
 @import "components/navbar";
+@import "components/empty_state";
 
 // Layouts
+@import "config/animations";
 @import "layouts/container";
 @import "layouts/header";
