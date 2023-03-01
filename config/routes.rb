@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :pages, only: %i[home]
-  resources :quotes
+  resources :quotes do
+    resources :line_item_dates, except: %i[index show]
+  end
 end
