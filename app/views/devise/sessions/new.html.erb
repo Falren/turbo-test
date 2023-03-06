@@ -1,0 +1,28 @@
+<div class="flex justify-center items-center h-screen">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "max-w-sm" }) do |f| %>
+    <div class="bg-white shadow-md rounded px-8 py-6 mb-4">
+      <div class="mb-4">
+        <%= f.label :email, class: "block text-gray-700 font-bold mb-2" %>
+        <%= f.email_field :email, autocomplete: "email", class: "form-input w-full p-2 border rounded" %>
+      </div>
+
+      <div class="mb-6">
+        <%= f.label :password, class: "block text-gray-700 font-bold mb-2" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-input w-full p-2 border rounded" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="mb-6">
+          <%= f.check_box :remember_me, class: "form-checkbox" %>
+          <%= f.label :remember_me, class: "inline-block ml-2 text-gray-700 font-bold" %>
+        </div>
+      <% end %>
+
+      <div class="flex items-center justify-between">
+        <%= f.submit "Log in", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= render "devise/shared/links" %>
