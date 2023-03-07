@@ -1,9 +1,7 @@
-<%= turbo_stream_from current_company, "quotes" %>
-
 <main class="container mx-auto">
   <div class="flex items-center justify-between py-6 border-b">
     <h1 class="text-3xl font-bold">Quotes</h1>
-    <%= link_to "New quote", new_quote_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline",  data: { turbo_frame: dom_id(Quote.new) } %>
+    <%= link_to "New quote", new_quote_path, class: "hover:text-white bg-gradient-to-b from-green-400 to-purple-gray-600 hover:from-gray-600 hover:to-green-400 text-white font-bold py-3 px-6 rounded-md focus:outline-none focus:shadow-outline",  data: { turbo_frame: dom_id(Quote.new) } %>
   </div>
 
   <%= turbo_frame_tag Quote.new do %>
@@ -13,6 +11,8 @@
   <% end %>
 
   <%= turbo_frame_tag "quotes" do %>
-    <%= render @quotes %>
+    <ul class="divide-y divide-gray-300">
+      <%= render @quotes %>
+    </ul>
   <% end %>
 </main>

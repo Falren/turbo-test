@@ -1,9 +1,14 @@
 
-@keyframes appear-then-fade {
+@keyframes fade-in {
   0%, 100% {
     opacity:0
   }
   5%, 60% {
     opacity:1
   }
+}
+
+
+.animate-fade-in {
+  animation: fade-in 4s both;
 }
