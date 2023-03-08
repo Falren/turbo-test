@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import RemovalsController from "./removals_controller"
 application.register("removals", RemovalsController)
+
+import ScrollToTopController from "./scroll_to_top_controller"
+application.register("scroll-to-top", ScrollToTopController)

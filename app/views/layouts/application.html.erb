@@ -17,5 +17,12 @@
       <%= render "layouts/flash" %>
     </div>
     <%= yield %>
+    <div>
+      <button class="fixed bottom-5 right-8 rounded-full bg-gray-500 text-white px-4 py-2" 
+              data-action="click->scroll-to-top#scrollToTop"
+              data-controller="scroll-to-top">
+        UP
+      </button>
+    </div>
   </body>
 </html>
