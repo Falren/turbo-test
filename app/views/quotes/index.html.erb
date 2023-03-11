@@ -5,17 +5,22 @@
   </div>
 </main>
 <main class="container h-screen overflow-y-auto">
-    <%= turbo_frame_tag Quote.new do %>
+  <%= turbo_frame_tag Quote.new do %>
     <% if @quotes.none? %>
-    <%= render "quotes/empty_state" %>
+      <%= render "quotes/empty_state" %>
     <% end %>
-    <% end %>
-    
-    <div class="h-full overflow-y-auto">
-      <%= turbo_frame_tag "quotes" do %>
-      <ul class="">
-        <%= render @quotes %>
-      </ul>
-      <% end %>
-    </div>
+  <% end %>
+
+
+  <div class="h-full overflow-y-auto">
+    <ul>
+        <%= turbo_frame_tag "quotes" do %>
+            <%= render @quotes %>
+        <% end %>      
+      <div id='infinite-loader' class="flex h-14 w-14 items-center justify-center mx-auto rounded-full bg-gradient-to-tr from-white to-green-500 animate-spin">
+        <div class="h-9 w-9 rounded-full bg-gray-600"></div>
+      </div>
+      <%= turbo_frame_tag "load_more", src: quotes_path(format: :turbo_stream, page: @pagy.next), loading: :lazy %>
+    </ul>
+  </div>
 </main>

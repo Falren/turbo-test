@@ -1,9 +1,9 @@
 class QuotesController < ApplicationController
+  include Pagy::Backend
   before_action :set_quote, only: %i[show edit update destroy]
 
   def index
-    @quotes = current_company.quotes.ordered
-    
+    @pagy, @quotes = pagy(current_company.quotes, items: 50, page: params[:page])
   end
 
   def show

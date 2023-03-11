@@ -1,0 +1,12 @@
+<%= turbo_stream.append "quotes" do %>
+  <%= render @quotes %>
+<% end %>
+
+<% if @pagy.next.nil? %>
+  <%= turbo_stream.remove 'infinite-loader' %>
+<% else %>
+  <%= turbo_stream.replace "load_more" do %>
+      <%= turbo_frame_tag "load_more", src: quotes_path(page: @pagy.next, format: :turbo_stream), loading: :lazy %>
+  <% end %>
+<% end %>
+
