@@ -2,6 +2,6 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    document.getElementById('quotes-scroll').scrollTo({ top: 0, behavior: 'smooth' })
   }
 }
